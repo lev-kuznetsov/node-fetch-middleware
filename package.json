@@ -1,0 +1,45 @@
+{
+  "name": "node-fetch-middleware",
+  "version": "0.0.0",
+  "description": "Elegant asynchronous middleware chaining around node-fetch calls with familiar API.",
+  "main": "target/src/index.js",
+  "scripts": {
+    "build": "tsc -d",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lev-kuznetsov/node-fetch-middleware.git"
+  },
+  "keywords": [
+    "fetch",
+    "node-fetch",
+    "middleware"
+  ],
+  "author": "levk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lev-kuznetsov/node-fetch-middleware/issues"
+  },
+  "homepage": "https://github.com/lev-kuznetsov/node-fetch-middleware#readme",
+  "dependencies": {
+    "jquery-param": "^1.0.2",
+    "lodash": "^4.17.15",
+    "node-cache": "^5.1.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.149",
+    "@types/mocha": "^5.2.7",
+    "@types/node-fetch": "^2.5.4",
+    "@types/should-sinon": "0.0.5",
+    "@types/sinon": "^7.5.1",
+    "mocha": "^6.2.2",
+    "nock": "^11.7.0",
+    "should": "^13.2.3",
+    "should-sinon": "0.0.6",
+    "sinon": "^8.0.1",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  }
+}

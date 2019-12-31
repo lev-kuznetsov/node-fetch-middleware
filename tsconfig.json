@@ -1,0 +1,17 @@
+{
+  "version": "3.7.4",
+  "compilerOptions": {
+    "lib": ["es5", "es6", "dom", "es2015"],
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "outDir": "target",
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules",
+    "target"
+  ]
+}
