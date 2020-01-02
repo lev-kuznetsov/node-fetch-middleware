@@ -9,10 +9,18 @@ describe('Query middleware', () => {
 
   beforeEach(() => next = sandbox.stub().resolves(new Response('ok', {status: 200})))
 
-  describe('when query parameters are provided', () => {
+  describe('when query object parameter is provided', () => {
     beforeEach(() => init = {query: {foo: 'bar'}})
 
     afterEach(() => next.should.have.been.calledWith('url?foo=bar', {}))
+
+    it('should resolve', () => middleware(url, init, next))
+  })
+
+  describe('when query string parameter is provided', () => {
+    beforeEach(() => init = {query: 'foobar'})
+
+    afterEach(() => next.should.have.been.calledWith('url?foobar', {}))
 
     it('should resolve', () => middleware(url, init, next))
   })

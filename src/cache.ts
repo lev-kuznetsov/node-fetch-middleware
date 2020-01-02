@@ -1,12 +1,13 @@
 import {Middleware} from './middleware'
-import * as Cache from 'node-cache'
+import * as NodeCache from 'node-cache'
 import {RequestInfo, RequestInit, Response} from 'node-fetch'
 import {get} from './url'
 
-const buffer = new Cache()
+const cash = new NodeCache()
 
 export type Key = (url: RequestInfo, init?: RequestInit) => string | null
 export type Ttl = (response: Response, url: RequestInfo, init?: RequestInit) => number | null
+export type Cache = {get(key: string): Promise<Response>, set(key: string, response: Response, ttl: number): Promise<void>}
 export type CacheOptions = {key?: Key, ttl?: Ttl, cache?: Cache}
 
 export function ttl(ttl: number): Ttl {
@@ -20,15 +21,18 @@ const byUrl: Key = (url, init) => {
 export function cache(options: CacheOptions = {}): Middleware {
   if (!options.key) options.key = byUrl
   if (!options.ttl) options.ttl = ttl(30)
-  if (!options.cache) options.cache = buffer
+  if (!options.cache) options.cache = {
+    get: async key => cash.get(key) as Response,
+    set: async (key, response, ttl) => {cash.set(key, response, ttl)}
+  }
   return async (url, init, next) => {
     const key = (options.key || byUrl)(url, init)
-    let response = typeof key === 'string' && ((options.cache || buffer).get(key) as Response)
+    let response = typeof key === 'string' && ((await options.cache.get(key)) as Response)
     if (!response) {
       response = await next(url, init)
       if (key) {
         const ttl = options.ttl(response, url, init)
-        if (ttl) options.cache.set(key, response)
+        if (ttl) await options.cache.set(key, response, ttl)
       }
     }
     return response
