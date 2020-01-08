@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "Elegant asynchronous middleware chaining around node-fetch calls with familiar API.",
   "main": "target/src/index.js",
+  "types": "target/src/index.d.ts",
   "scripts": {
     "build": "tsc -d",
     "test": "mocha",
@@ -44,5 +45,7 @@
     "ts-node": "^8.5.4",
     "typescript": "^3.7.4"
   },
-  "files": ["target/src"]
+  "files": [
+    "target/src"
+  ]
 }
