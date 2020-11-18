@@ -38,7 +38,7 @@
     "@types/sinon": "^7.5.1",
     "mocha": "^6.2.2",
     "nock": "^11.7.0",
-    "semantic-release": "^15.14.0",
+    "semantic-release": "^17.2.3",
     "should": "^13.2.3",
     "should-sinon": "0.0.6",
     "sinon": "^8.0.1",
