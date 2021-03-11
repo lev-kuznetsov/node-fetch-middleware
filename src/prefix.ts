@@ -1,6 +1,5 @@
 import {Middleware} from './middleware'
 import {Request} from 'node-fetch'
-import {pick} from 'lodash'
 import {get, set} from './url'
 
 export type PrefixOptions = {test?: (url: string) => boolean} | undefined
