@@ -3,7 +3,7 @@ import * as NodeCache from 'node-cache'
 import {RequestInfo, RequestInit, Response} from 'node-fetch'
 import {get} from './url'
 
-const cache = new NodeCache()
+const cash = new NodeCache()
 
 export type Key = (url: RequestInfo, init?: RequestInit) => string | null
 export type Ttl = (response: Response, url: RequestInfo, init?: RequestInit) => number | null
@@ -22,8 +22,8 @@ export function cache(options: CacheOptions = {}): Middleware {
   if (!options.key) options.key = byUrl
   if (!options.ttl) options.ttl = ttl(30)
   if (!options.cache) options.cache = {
-    get: async key => cache.get(key) as Response,
-    set: async (key, response, ttl) => {cache.set(key, response, ttl)}
+    get: async key => cash.get(key) as Response,
+    set: async (key, response, ttl) => {cash.set(key, response, ttl)}
   }
   return async (url, init, next) => {
     const key = (options.key || byUrl)(url, init)
