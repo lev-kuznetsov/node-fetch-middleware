@@ -1,6 +1,6 @@
 import {agent} from '../src'
 import {sandbox} from './sandbox'
-import {Request, Response} from 'node-fetch'
+import {Response} from 'node-fetch'
 import 'should'
 import 'should-sinon'
 

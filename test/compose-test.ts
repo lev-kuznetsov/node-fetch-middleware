@@ -1,7 +1,6 @@
 import {compose, Middleware} from '../src'
-import {sandbox} from 'sinon'
 import {Response} from 'node-fetch'
-import * as nock from 'nock'
+import nock from 'nock'
 import 'should'
 import 'should-sinon'
 

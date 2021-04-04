@@ -1,5 +1,5 @@
 import {Middleware} from './middleware'
-import * as NodeCache from 'node-cache'
+import NodeCache from 'node-cache'
 import {RequestInfo, RequestInit, Response} from 'node-fetch'
 import {get} from './url'
 

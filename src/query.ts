@@ -1,7 +1,7 @@
 import {Middleware} from './middleware'
 import {RequestInit} from 'node-fetch'
 import {get, set} from './url'
-import * as params from 'jquery-param'
+import params from 'jquery-param'
 
 declare module 'node-fetch' {interface RequestInit {query?: string | {[key: string]: string | string[]}}}
 

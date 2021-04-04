@@ -1,7 +1,7 @@
 import {cache} from '../src'
 import {sandbox} from './sandbox'
 import {Response} from 'node-fetch'
-import * as Cache from 'node-cache'
+import Cache from 'node-cache'
 import 'should'
 import 'should-sinon'
 
