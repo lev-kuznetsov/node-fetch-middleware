@@ -10,6 +10,6 @@ export const json: Middleware = async (url, init, next) => {
   init = {...init, headers: {...init?.headers, 'Accept': 'application/json', 'Content-Type': 'application/json'}}
   if (init.json) init.body = JSON.stringify(init.json)
   const response = await next(url, init)
-  if (response?.headers && response.headers.get('Content-Type') === 'application/json') response.parsed = await response.json()
+  response.parsed = await response.json()
   return response
 }

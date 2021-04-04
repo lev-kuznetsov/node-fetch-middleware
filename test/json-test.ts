@@ -13,5 +13,8 @@ describe('Json middleware', () => {
     body: '{"foo":"bar"}', json: {foo: 'bar'}, headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
   }))
 
-  it('should resolve', () => middleware('url', {json: {foo: 'bar'}}, next))
+  it('should resolve', async () => {
+    const {parsed} = await middleware('url', {json: {foo: 'bar'}}, next)
+    parsed.should.eql({bar: 'baz'})
+  })
 })
